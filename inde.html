@@ -1,125 +1,82 @@
 <!DOCTYPE html>
 <html>
 <style>
+  body {
+    background-color: rgb(90, 5, 58);
+  }
 
-    form {
-        border: 3px solid #72062a;
-    }
+  th,
+  td {
+    text-align: center;
+  }
 
-
-
-    input[type=text],
-    input[type=password] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        display: inline-block;
-        border: 1px solid rgb(149, 6, 94);
-        box-sizing: border-box;
-        
-    }
-
-    
-
-    button {
-        background-color: #24003b;
-        color: white;
-        padding: 14px 20px;
-        margin: 8px 0;
-        border: none;
-        cursor: pointer;
-        width: 50%;
-    }
-
-    
-
-    button:hover {
-        opacity: 0.8;
-    }
-
-
-
-    .cancelbtn {
-        width: auto;
-        padding: 10px 18px;
-        background-color: #1f1d1d;
-    }
-
-
-    .imgcontainer {
-        text-align: center;
-        margin: 8px 0 10px 0;
-    }
-
-
-
-    img.avatar {
-        width: 40%;
-        border-radius: 50%;
-    }
-
-    
-
-    .container {
-        
-        margin-left: 25%;
-        padding: 10px;
-        width: 50%;
-    }
-
-
-    span.psw {
-        float: right;
-        padding-top: 10px;
-
-    }
-    .loginbtn{
-        margin-left: 30%;
-    }
-
-    
-
-    @media screen and (max-width: 100px) {
-        span.psw {
-            display: block;
-            float: none;
-        }
-
-        .cancelbtn {
-            width: 100%;
-        }
-    }
+  td {
+    color: rgb(230, 230, 243);
+    font-family: "Lucida  Console", "Courier  New", monospace;
+  }
 </style>
 
 <body>
 
-    <h2> DEVELOP HER </h2>
-    
-    <form action="/action_page.php">
-        <div class="imgcontainer">
-            <img src="https://media.istockphoto.com/vectors/young-long-red-haired-student-girl-in-glasses-headphones-and-blue-vector-id1200460428?k=20&m=1200460428&s=612x612&w=0&h=BQiPHXiBiNSAdcWWjdMivaYreB04KCwIn058DXxjsyU=" alt="Avatar"
-                class="avatar">
-        </div>
+  <p id="demotime"><span style="color:rgb(58, 58, 61);font-weight:bold"> The Current Time
+    </span> </p>
+  <table style="width:100%">
+    <tr>
+      <th>Confirm</th>
+      <th>Alert</th>
+      <th>Prompt</th>
+    </tr>
+    <tr>
+      <td><button onclick="myFunction()">Confirm</button>
+        <br>
+        <p id="demo"></p>
+      </td>
+      <td><button onclick="myFunction1()">Alert </button></td>
+      <td><button onclick="myFunction2()">Prompt
+          <br>
+          <p id="demo1"></p>
+        </button></td>
+      </td>
 
-        <div class="container">
-            <label><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
+    </tr>
+  </table>
+  <script> setInterval(myTimer, 1000); function myTimer() {
+      const d = new Date();
+      document.getElementById("demotime").innerHTML = d.toLocaleTimeString();
+    }
+    function myFunction() {
+      var txt;
+      var r = confirm("Press  a  button!"); if (r == true) {
+        txt = "You  pressed  OK!";
+      } else {
+        txt = "You  pressed  Cancel!";
+      }
+      document.getElementById("demo").innerHTML = txt;
+    }
+  </script>
+  <script>
+    function myFunction1() {
+      alert("Hey!!  This  is  an  alert  message.");
+    }
+  </script>
+  <script>
+    function myFunction2() {
 
-            <label><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" required>
-        <div class="loginbtn">
-            <button type="submit">Login</button>
-        </div>
-        <div class="loginbtn">
-            <input type="checkbox" checked="checked"> Remember me
-        </div>
-        </div>
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
-    </form>
-
+      var person = prompt("Please  enter  your  name"); if (person != null) {
+        document.getElementById("demo1").innerHTML = "Hello  " + person + "!  How  are  you  today?";
+      }
+    }
+  </script>
+  <script>
+    var myWindow; function openWin() {
+      myWindow = window.open("", "myWindow", "width=500,  height=500"); myWindow.document.write("<p>This is message Window open when you click open  a  new  window  close  it  by  clicking  on  close  'my  window'</p>");
+    }
+    function closeWin() {
+      if (myWindow) {
+        myWindow.close();
+      }
+    }
+  </script>
 </body>
 
 </html>
